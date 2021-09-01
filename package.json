@@ -1,0 +1,19 @@
+{
+  "name": "workout-a-day",
+  "version": "1.0.0",
+  "description": "project goal is to give me a random workout for the day",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkepassport39/workout-a-day.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkepassport39/workout-a-day/issues"
+  },
+  "homepage": "https://github.com/tkepassport39/workout-a-day#readme"
+}
