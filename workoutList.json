@@ -1,6 +1,6 @@
 [
     {
-        "groupName" : "big muscle group",
+        "groupName" : "big muscle",
         "muscleList" : [
             {
                 "muscle" : "chest",
@@ -65,7 +65,7 @@
         ]
     },
     {
-        "groupName" : "small muscle group",
+        "groupName" : "small muscle",
         "muscleList" : [
             {
                 "muscle" : "bicep",
