@@ -67,7 +67,7 @@ prompt.get(['Muscle Group'], function (err, result) {
 
         console.log(result['Muscle list'])
 
-        // display the workout exercises
+        // display the exercises
         getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
     })
 
