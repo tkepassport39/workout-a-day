@@ -1,19 +1,26 @@
 const workouts = require('./workoutList.json')
 var prompt = require('prompt');
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 
 function getWorkoutDetails (exercise) {
 
+    const workout = getRandomInt(exercise.exerciseList.length)
+
     // what the user should see 
-    console.log("workout name : " + exercise.exerciseList[0].name)
-    console.log("# Sets : " + exercise.exerciseList[0].sets)
-    console.log("# Reps : " + exercise.exerciseList[0].reps)
+    console.log("workout name : " + exercise.exerciseList[workout].name)
+    console.log("# Sets : " + exercise.exerciseList[workout].sets)
+    console.log("# Reps : " + exercise.exerciseList[workout].reps)
     console.log("-------------")
 }
 
 // get muscle list 
 function getMuscleList (muscleGroup){
-    console.log("Select which muscle:\n")
+    console.log("Select which muscle:")
+    console.log("-------------\n")
     muscleGroup.forEach((element, index) => {
         console.log(`${index}) ${element.muscle}`)
 
