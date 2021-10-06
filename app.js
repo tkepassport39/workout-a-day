@@ -73,9 +73,28 @@ prompt.get(['Muscle Group'], function (err, result) {
     prompt.get(['Muscle list'], function (err, result) {
 
         console.log(result['Muscle list'])
-
+        let i = 0
+        
         // display the exercises
-        getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
+        do {
+            
+            i += 1
+            getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
+
+            // think about async await
+            // prompt.get(['quit'], function (err, result) {
+            //     console.log(result['quit'])
+            //     break;
+            // }
+
+        } while (i < 3)
+        
+        // for(let i=0; i <3; i++){
+
+        //     getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
+        
+        // }
+
     })
 
 });
