@@ -5,16 +5,37 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+const previousWorkout = []
+
+// store previous workouts in array
+function resetWorkout () {
+    
+    // trick to reset a const array
+    previousWorkout.length = 0
+}
+
+
 
 function getWorkoutDetails (exercise) {
 
-    const workout = getRandomInt(exercise.exerciseList.length)
+    let workout 
+
+    do{
+        // get another random workout
+        workout = getRandomInt(exercise.exerciseList.length)
+        
+    }
+    while(previousWorkout.includes(workout))
+
+    // record workout in array
+    previousWorkout.push(workout)
 
     // what the user should see 
     console.log("workout name : " + exercise.exerciseList[workout].name)
     console.log("# Sets : " + exercise.exerciseList[workout].sets)
     console.log("# Reps : " + exercise.exerciseList[workout].reps)
     console.log("-------------")
+
 }
 
 // get muscle list 
@@ -87,7 +108,11 @@ prompt.get(['Muscle Group'], function (err, result) {
             //     break;
             // }
 
-        } while (i < 3)
+        } while (i < 2)
+
+        resetWorkout()
+
+        console.log(previousWorkout)
         
         // for(let i=0; i <3; i++){
 

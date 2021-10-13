@@ -124,6 +124,11 @@
                         "name" : "barbell overhead press",
                         "sets"    : 3,
                         "reps"    : 10
+                    },
+                    {
+                        "name" : "something press",
+                        "sets"    : 3,
+                        "reps"    : 10
                     }
                 ]
             }
