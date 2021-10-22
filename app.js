@@ -77,49 +77,53 @@ function getMuscleGroupList (muscleGroup){
 //
 prompt.start();
 
-// welcome message
-console.log("Welcome! Choose a muscle group:\n0) Big Muscle Group\n1) Small Muscle Group\n")
 
-//
-// Get two properties from the user: username and email
-//
-prompt.get(['Muscle Group'], function (err, result) {
 
-    userInput = result['Muscle Group']
-    //console.log('  Muscle Group: ' + userInput);
+function stuff () {
+
+    // welcome message
+    console.log("Welcome! Choose a muscle group:\n0) Big Muscle Group\n1) Small Muscle Group\n")
+
+    prompt.get(['Muscle Group'], function (err, result) {
+
+        userInput = result['Muscle Group']
+        //console.log('  Muscle Group: ' + userInput);
+        
+        // dislay muscle group lists
+        getMuscleList(workouts[userInput].muscleList)
     
-    // dislay muscle group lists
-    getMuscleList(workouts[userInput].muscleList)
-
-    prompt.get(['Muscle list'], function (err, result) {
-
-        console.log(result['Muscle list'])
-        let i = 0
-        
-        // display the exercises
-        do {
+        prompt.get(['Muscle list'], function (err, result) {
+    
+            console.log(result['Muscle list'])
+            let i = 0
             
-            i += 1
-            getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
+            // display the exercises
+            do {
+                
+                i += 1
+                getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
+    
+            } while (i < 2)
+    
+            resetWorkout()
+            
+            // get user input of Y that they finished workout
+            prompt.get(['Done?'], function (err, result) {
 
-            // think about async await
-            // prompt.get(['quit'], function (err, result) {
-            //     console.log(result['quit'])
-            //     break;
-            // }
+                let userInput = result['Done?']
+                
+                if(userInput == 'n'){
+                    stuff()    
+                }
+                
 
-        } while (i < 2)
+            })
+            
+    
+        })
+    
+    });
 
-        resetWorkout()
+}
 
-        console.log(previousWorkout)
-        
-        // for(let i=0; i <3; i++){
-
-        //     getWorkoutDetails(workouts[userInput].muscleList[result['Muscle list']])
-        
-        // }
-
-    })
-
-});
+stuff()
