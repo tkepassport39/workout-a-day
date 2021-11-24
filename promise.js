@@ -104,6 +104,7 @@ function stuff () {
             return stuff()    
         }
     })
+    .then(() => console.log("Last .then") )
 
 }
 
