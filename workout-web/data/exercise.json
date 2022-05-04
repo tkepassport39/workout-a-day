@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 0,
+        "name" : "Dumbbell Bicep Curls",
+        "default-reps" : 10,
+        "default-sets" : 3,
+        "instructions" : [
+            "Start standing with a dumbbell in each hand", 
+            "Bring the dumbbells all the way up to your shoulders by bending your elbows.", "Reverse the curl slowly and repeat."
+        ]
+    },
+    {
+        "id" : 1,
+        "name" : "Dips",
+        "default-reps" : 10,
+        "default-sets" : 3,
+        "instructions" : [
+            "Grasp the parallel bars and hop up so your arms are straight.",
+            "Slowly bend your elbows to lower your body into the Dip until your upper arms are about parallel to the ground."
+        ]
+    }
+]

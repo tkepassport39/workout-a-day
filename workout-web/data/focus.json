@@ -1,0 +1,12 @@
+[
+    {
+        "id" : 0,
+        "label" : "bicep",
+        "exercise_id" : 0
+    },
+    {
+        "id" : 1,
+        "label" : "tricep",
+        "exercise_id" : 1
+    }
+]

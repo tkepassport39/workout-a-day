@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 0,
+        "user_id" : 0,
+        "exercise_id" : 0,
+        "workout_id" : 0,
+        "record_reps" : 15, 
+        "record_sets" : 3,
+        "date" : "2022-03-22",
+        "record_weights" : 25
+    },
+    {
+        "id" : 1,
+        "user_id" : 1,
+        "exercise_id" : 1,
+        "workout_id" : 1,
+        "record_reps" : 8, 
+        "record_sets" : 3,
+        "date" : "2022-04-01",
+        "record_weights" : 10
+    }
+]
