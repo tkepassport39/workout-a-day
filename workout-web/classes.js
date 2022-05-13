@@ -30,12 +30,6 @@ class User {
     async delete(){}
 }
 
-User.get("melissa@gmail.com").then(console.log)
-
-User.create("kevin@hotmail.com").then(console.log)
-
-console.log(db_user.length)
-
 class UserExerciseWorkout {
     static async create(user, exercise, workout){
         console.log(JSON.stringify(user, null, 2))
@@ -71,7 +65,20 @@ class Workout {
 class Exercise {
     static async create(){}
     static async get(){}
-    static async getFocus(focus){}
+    static async getFocus(focus){
+        const saveExercise = []
+        focus.forEach(element => {
+            
+            db_focus.forEach(i => {
+                if(i.label == element){
+                    saveExercise.push(i.exercise_id)
+                }
+            })
+        });
+
+        // return exercise objects
+        saveExercise.map(exercise_id => db_exercise[exercise_id])
+    }
     async update(){}
     async delete(){}
 }
@@ -84,7 +91,7 @@ async function getTodayWorkout(userEmail, focus) {
     const lastWorkout = await Workout.getLastWorkoutForUser(user)
 
     // then get 6 exercises for 2 muscle groups
-    const exercises = await getExercisesForFocusGroup(focus , numOfExercise, lastWorkout)
+    const exercises = await getExercisesForFocusGroup(focus)
 
     // group exercises into a workout for the day
     const workout = await Workout.create()
@@ -99,7 +106,9 @@ async function getTodayWorkout(userEmail, focus) {
     return workout
 }
 
-async function getExercisesForFocusGroup(focus, count, lastWorkout){
+async function getExercisesForFocusGroup(focus){
+    // pass the label
+    // hand back exercises
     const exercises = Exercise.getFocus(focus)
 
     // select three
@@ -141,4 +150,5 @@ async function saveWeight(user, exercise, workout){
 module.exports = { 
     getTodayWorkout,
     Workout,
+    User
 }

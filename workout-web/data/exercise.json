@@ -18,5 +18,14 @@
             "Grasp the parallel bars and hop up so your arms are straight.",
             "Slowly bend your elbows to lower your body into the Dip until your upper arms are about parallel to the ground."
         ]
+    },
+    {
+        "id" : 2,
+        "name" : "resistence bicep pull",
+        "default-reps" : 10,
+        "default-sets" : 3,
+        "instructions" : [
+            "dummy pull here"        
+        ]
     }
 ]

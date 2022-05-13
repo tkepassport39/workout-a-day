@@ -8,5 +8,15 @@
         "id" : 1,
         "label" : "tricep",
         "exercise_id" : 1
+    },
+    {
+        "id" : 2,
+        "label" : "forearm",
+        "exercise_id" : 0
+    },
+    {
+        "id" : 3,
+        "label" : "bicep",
+        "exercise_id" : 2
     }
 ]
