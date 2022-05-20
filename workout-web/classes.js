@@ -52,7 +52,7 @@ class Workout {
         // create workout in DB
         const dbID = 1
         // return new workout id
-        return new Workout(dbID, "Anthony")
+        return new Workout(dbID, "Anthony's Workout List")
     }
     static async get(){}
     static async getLastWorkoutForUser(user){}
@@ -77,7 +77,7 @@ class Exercise {
         });
 
         // return exercise objects
-        saveExercise.map(exercise_id => db_exercise[exercise_id])
+        return saveExercise.map(exercise_id => db_exercise[exercise_id])
     }
     async update(){}
     async delete(){}
@@ -87,8 +87,8 @@ async function getTodayWorkout(userEmail, focus) {
     // need to get user from User class
     const user = await User.get(userEmail)
 
-    // get the last workout for the user
-    const lastWorkout = await Workout.getLastWorkoutForUser(user)
+    // TODO: get the last workout for the user
+    // const lastWorkout = await Workout.getLastWorkoutForUser(user)
 
     // then get 6 exercises for 2 muscle groups
     const exercises = await getExercisesForFocusGroup(focus)
@@ -109,7 +109,7 @@ async function getTodayWorkout(userEmail, focus) {
 async function getExercisesForFocusGroup(focus){
     // pass the label
     // hand back exercises
-    const exercises = Exercise.getFocus(focus)
+    const exercises = await Exercise.getFocus(focus)
 
     // select three
 
