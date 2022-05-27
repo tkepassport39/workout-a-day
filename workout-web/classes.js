@@ -3,6 +3,37 @@ const db_focus = require("./data/focus")
 const db_user_exercise_workout = require("./data/user-exercise-workout")
 const db_user = require("./data/user")
 const db_workout = require("./data/workout")
+const { Pool, Client } = require("pg");
+
+const credentials = {
+  user: "workout-admin",
+  host: "localhost",
+  database: "workout",
+  password: "4QrXLMVvQu.KXYo",
+  port: 5432,
+};
+
+// Connect with a connection pool.
+
+async function poolDemo() {
+  const pool = new Pool(credentials);
+  const now = await pool.query("SELECT id, email FROM workout.users;");
+  await pool.end();
+
+  return now;
+}
+
+// Use a self-calling function so we can use async / await.
+
+(async () => {
+  const poolResult = await poolDemo();
+  console.log("Time with pool: " + JSON.stringify(poolResult.rows));
+
+})();
+
+
+
+//////////////////////////////////////////////////////
 
 const numOfExercise = 3
 
