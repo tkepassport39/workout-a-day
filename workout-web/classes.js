@@ -13,24 +13,8 @@ const credentials = {
   port: 5432,
 };
 
-// Connect with a connection pool.
-
-async function poolDemo() {
-  const pool = new Pool(credentials);
-  const now = await pool.query("SELECT id, email FROM workout.users;");
-  await pool.end();
-
-  return now;
-}
-
-// Use a self-calling function so we can use async / await.
-
-(async () => {
-  const poolResult = await poolDemo();
-  console.log("Time with pool: " + JSON.stringify(poolResult.rows));
-
-})();
-
+// connect to the postgres pool
+const pool = new Pool(credentials);
 
 
 //////////////////////////////////////////////////////
@@ -38,7 +22,7 @@ async function poolDemo() {
 const numOfExercise = 3
 
 class User {
-
+    // static class method
     static async create(email) {
         // generate a new ID for the user
         const newID = db_user.length
@@ -54,10 +38,15 @@ class User {
         // return the new user object
         return newUser
     }
+    // static class method
     static async get(email){
         return db_user.find(element => element.email == email);
+        // get user from database
+        const now = await pool.query("SELECT id, email FROM workout.users;");
     }
+    // instance method
     async update(){}
+    // instance method
     async delete(){}
 }
 
@@ -134,7 +123,7 @@ async function getTodayWorkout(userEmail, focus) {
     }
 
     // return the workout
-    return workout
+    return workoutw
 }
 
 async function getExercisesForFocusGroup(focus){
