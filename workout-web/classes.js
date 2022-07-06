@@ -22,6 +22,12 @@ const pool = new Pool(credentials);
 const numOfExercise = 3
 
 class User {
+
+    constructor(id, email){
+        this.id = id;
+        this.email = email;
+    }
+
     // static class method
     static async create(email) {
         // generate a new ID for the user
@@ -40,12 +46,18 @@ class User {
     }
     // static class method
     static async get(email){
-        return db_user.find(element => element.email == email);
-        // get user from database
-        const now = await pool.query("SELECT id, email FROM workout.users;");
+        try {
+           const results =  await pool.query('SELECT id, email FROM workout.users WHERE email=$1::text', [email]);
+
+           return new User(results.rows[0].id, results.rows[0].email)
+         } catch (e) {
+           console.error(e);
+         }
     }
     // instance method
-    async update(){}
+    async update(){
+
+    }
     // instance method
     async delete(){}
 }
